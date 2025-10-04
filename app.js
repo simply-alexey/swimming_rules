@@ -65,7 +65,7 @@ function renderCategory(code){
     </article>
   `).join('');
   view.innerHTML = searchBox + items;
-  setFootnote('eff. 1 Jan 2025');
+  setFootnote('1 Jan 2025');
 
   const input = document.getElementById('search');
   if (input) input.addEventListener('input', e => {
@@ -82,7 +82,7 @@ function renderCategory(code){
         <div>${r.body}</div>
       </article>
     `).join('');
-    setFootnote('eff. 1 Jan 2025');
+    setFootnote('1 Jan 2025');
   });
 }
 
@@ -114,7 +114,7 @@ function renderOther(code){
     </article>
   `).join('');
   view.innerHTML = searchBox + items;
-  setFootnote('eff. 1 Jan 2025');
+  setFootnote('1 Jan 2025');
 
   const input = document.getElementById('search');
   if (input) input.addEventListener('input', e => {
@@ -131,7 +131,7 @@ function renderOther(code){
         <div>${r.body}</div>
       </article>
     `).join('');
-    setFootnote('eff. 1 Jan 2025');
+    setFootnote('1 Jan 2025');
   });
 }
 
