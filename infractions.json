@@ -1,0 +1,257 @@
+[
+  {
+    "section": "The Start",
+    "infractions": [
+      {
+        "description": "Initiating a start before the signal",
+        "rule": "4.4"
+      }
+    ]
+  },
+  {
+    "section": "Freestyle",
+    "infractions": [
+      {
+        "description": "Did not touch the wall at the turn or finish",
+        "rule": "5.2"
+      },
+      {
+        "description": "Head did not break the surface of the water at or before the 15m mark following the start or turn",
+        "rule": "5.3"
+      },
+      {
+        "description": "Completely submerged during stroke",
+        "rule": "5.3"
+      }
+    ]
+  },
+  {
+    "section": "Backstroke",
+    "infractions": [
+      {
+        "description": "Left position on the back except when executing a turn",
+        "rule": "6.2"
+      },
+      {
+        "description": "Head did not break the surface of the water at or before the 15m mark following the start or turn",
+        "rule": "6.3"
+      },
+      {
+        "description": "Completely submerged during stroke except within 5m whilst reaching for the finish",
+        "rule": "6.3"
+      },
+      {
+        "description": "Did not start executing the turn immediately after turning onto the breast",
+        "rule": "6.4"
+      },
+      {
+        "description": "Turn not initiated at completion of the arm pull after leaving position on the back",
+        "rule": "6.4"
+      },
+      {
+        "description": "Did not touch the wall during the turn",
+        "rule": "6.4"
+      },
+      {
+        "description": "Not on the back upon leaving the wall after the turn",
+        "rule": "6.4"
+      },
+      {
+        "description": "Did not finish the race while on the back",
+        "rule": "6.5"
+      }
+    ]
+  },
+  {
+    "section": "Breaststroke",
+    "infractions": [
+      {
+        "description": "More than one downward butterfly kick prior to first breaststroke kick after the start or turn",
+        "rule": "7.1"
+      },
+      {
+        "description": "Head did not break the surface before the hands turned inward at the widest part of the second stroke after the start or turn",
+        "rule": "7.1"
+      },
+      {
+        "description": "Body not on the breast during stroke",
+        "rule": "7.2"
+      },
+      {
+        "description": "Stroke cycle not 1 arm stroke to 1 leg kick in that order",
+        "rule": "7.2"
+      },
+      {
+        "description": "Arm movements not simultaneous",
+        "rule": "7.2"
+      },
+      {
+        "description": "Hands not pushed forward together from the breast",
+        "rule": "7.3"
+      },
+      {
+        "description": "Elbows not under the water during stroke",
+        "rule": "7.3"
+      },
+      {
+        "description": "Hands brought back beyond the hip line during stroke",
+        "rule": "7.3"
+      },
+      {
+        "description": "Head did not break the surface during each stroke cycle",
+        "rule": "7.4"
+      },
+      {
+        "description": "Leg movements not simultaneous",
+        "rule": "7.4"
+      },
+      {
+        "description": "Feet not turned out during propulsive part of the kick",
+        "rule": "7.5"
+      },
+      {
+        "description": "Executed a downward butterfly kick during stroke, prior to turn, or immediately prior to the finish",
+        "rule": "7.5"
+      },
+      {
+        "description": "Did not touch at the turn or finish with both hands; separated; simultaneously",
+        "rule": "7.6"
+      }
+    ]
+  },
+  {
+    "section": "Butterfly",
+    "infractions": [
+      {
+        "description": "Body not on the breast during stroke",
+        "rule": "8.1"
+      },
+      {
+        "description": "Arms not brought forward simultaneously over the water",
+        "rule": "8.2"
+      },
+      {
+        "description": "Arms not brought backward simultaneously under the water",
+        "rule": "8.2"
+      },
+      {
+        "description": "Alternating movement of legs or feet",
+        "rule": "8.3"
+      },
+      {
+        "description": "Leg movements not simultaneous",
+        "rule": "8.3"
+      },
+      {
+        "description": "Breaststroke kicking movement",
+        "rule": "8.3"
+      },
+      {
+        "description": "Did not touch at the turn or finish with both hands; separated; simultaneously",
+        "rule": "8.4"
+      },
+      {
+        "description": "More than one arm pull under water following the start or turn",
+        "rule": "8.5"
+      },
+      {
+        "description": "Head did not break the surface of the water at or before the 15m mark following the start or turn",
+        "rule": "8.5"
+      },
+      {
+        "description": "Completely submerged during the stroke",
+        "rule": "8.5"
+      }
+    ]
+  },
+  {
+    "section": "Medley",
+    "infractions": [
+      {
+        "description": "Backstroke, breaststroke or butterfly swum in the freestyle section",
+        "rule": "5.1"
+      },
+      {
+        "description": "Incorrect individual medley stroke order",
+        "rule": "9.1"
+      },
+      {
+        "description": "In the freestyle section, did not return to the breast before any kick or stroke",
+        "rule": "9.1 or 9.2"
+      },
+      {
+        "description": "Incorrect medley relay stroke order",
+        "rule": "9.3"
+      },
+      {
+        "description": "Finish of section not in accordance with rule of the stroke concerned (complete with stroke infraction above)",
+        "rule": "9.4"
+      }
+    ]
+  },
+  {
+    "section": "The Race",
+    "infractions": [
+      {
+        "description": "Did not complete the whole distance",
+        "rule": "10.2"
+      },
+      {
+        "description": "Did not remain in the same lane in which they started",
+        "rule": "10.4"
+      },
+      {
+        "description": "When turning did not make contact with the end of the pool",
+        "rule": "10.5"
+      },
+      {
+        "description": "Took a stride or step from the bottom of the pool",
+        "rule": "10.5"
+      },
+      {
+        "description": "Stood on the bottom of the pool (except in freestyle)",
+        "rule": "10.6"
+      },
+      {
+        "description": "Pulled on the lane rope",
+        "rule": "10.7"
+      },
+      {
+        "description": "Obstructing another swimmer",
+        "rule": "10.8"
+      },
+      {
+        "description": "Use of non-approved device, swimsuit, adhesive substance or body tape",
+        "rule": "15.3"
+      },
+      {
+        "description": "Entered the water during a race not entered in",
+        "rule": "10.9"
+      },
+      {
+        "description": "Relay exchange did not commence from the starting platform",
+        "rule": "10.11"
+      },
+      {
+        "description": "Feet lost touch with the starting platform before the preceding team-mate touched the wall",
+        "rule": "10.12"
+      },
+      {
+        "description": "Relay team member re-entered the water before all teams finished the race",
+        "rule": "10.13"
+      },
+      {
+        "description": "Relay team did not swim in the order listed",
+        "rule": "10.14"
+      },
+      {
+        "description": "Failed to leave the pool as soon as possible at the end of the race or section in a relay",
+        "rule": "10.15"
+      },
+      {
+        "description": "Device or plan used for pace-making",
+        "rule": "10.17"
+      }
+    ]
+  }
+]
