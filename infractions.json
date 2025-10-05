@@ -235,63 +235,78 @@
     "infractions": [
       {
         "description": "Did not complete the whole distance",
-        "rule": "10.2"
+        "rule": "10.2",
+         "link": "#link/other/the-race/RA-10.2"
       },
       {
         "description": "Did not remain in the same lane in which they started",
-        "rule": "10.4"
+        "rule": "10.4",
+         "link": "#link/other/the-race/RA-10.4"
       },
       {
         "description": "When turning did not make contact with the end of the pool",
-        "rule": "10.5"
+        "rule": "10.5",
+         "link": "#link/other/the-race/RA-10.5"
       },
       {
         "description": "Took a stride or step from the bottom of the pool",
-        "rule": "10.5"
+        "rule": "10.5",
+         "link": "#link/other/the-race/RA-10.5"
       },
       {
         "description": "Stood on the bottom of the pool (except in freestyle)",
-        "rule": "10.6"
+        "rule": "10.6",
+         "link": "#link/other/the-race/RA-10.6"
       },
       {
         "description": "Pulled on the lane rope",
-        "rule": "10.7"
+        "rule": "10.7",
+         "link": "#link/other/the-race/RA-10.7"
       },
       {
         "description": "Obstructing another swimmer",
-        "rule": "10.8"
+        "rule": "10.8",
+         "link": "#link/other/the-race/RA-10.8"
       },
       {
         "description": "Use of non-approved device, swimsuit, adhesive substance or body tape",
-        "rule": "15.3"
+        "rule": "15.3",
+         "link": "#link/other/swimwear/SW-15.3"
       },
       {
         "description": "Entered the water during a race not entered in",
-        "rule": "10.9"
+        "rule": "10.9",
+         "link": "#link/other/the-race/RA-10.9"
       },
       {
         "description": "Relay exchange did not commence from the starting platform",
-        "rule": "10.11"
+        "rule": "10.11",
+         "link": "#link/other/the-race/RA-10.11"
       },
       {
         "description": "Feet lost touch with the starting platform before the preceding team-mate touched the wall",
-        "rule": "10.12"
+        "rule": "10.12",
+         "link": "#link/other/the-race/RA-10.12"
       },
       {
         "description": "Relay team member re-entered the water before all teams finished the race",
-        "rule": "10.13"
+        "rule": "10.13",
+         "link": "#link/other/the-race/RA-10.13"
       },
       {
         "description": "Relay team did not swim in the order listed",
-        "rule": "10.14"
+        "rule": "10.14",
+         "link": "#link/other/the-race/RA-10.14"
       },
       {
         "description": "Failed to leave the pool as soon as possible at the end of the race or section in a relay",
-        "rule": "10.15"
+        "rule": "10.15",
+         "link": "#link/other/the-race/RA-10.15"
       },
       {
         "description": "Device or plan used for pace-making",
-        "rule": "10.17"
+        "rule": "10.17",
+         "link": "#link/other/the-race/RA-10.17"
       }
     ]
   }
