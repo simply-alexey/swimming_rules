@@ -1,7 +1,13 @@
 const view = document.getElementById('view');
+const pageTitle = document.getElementById('pageTitle');
 const foot = document.getElementById('foot');
 const btnBack = document.getElementById('btnBack');
 const btnHome = document.getElementById('btnHome');
+
+function setPageTitle(title) {
+  pageTitle.textContent = title || 'Swimming Rules';
+}
+
 
 let DATA = null;
 let INF = null;
@@ -36,6 +42,7 @@ function route(){
 function setFootnote(text){ foot.textContent = text || ''; }
 
 function renderHome(){
+    setPageTitle('Swimming Rules');
   view.innerHTML = `
     <div class="grid">
       <a class="tile" href="#cat/freestyle">Freestyle</a>
@@ -56,6 +63,7 @@ function renderHome(){
 
 
 function renderCategory(code, targetId){
+  setPageTitle(cat.name);
   const cat = DATA.categories.find(c => c.code === code);
   if (!cat) return view.innerHTML = `<p>Category not found.</p>`;
 
@@ -77,6 +85,7 @@ function renderCategory(code, targetId){
 }
 
 function renderOther(code, targetId){
+  setPageTitle(page.name);
   const other = DATA.categories.find(c => c.code === 'other');
   const page = (other.submenu || []).find(x => x.code === code);
   if (!page) return renderOtherHome();
@@ -99,6 +108,7 @@ function renderOther(code, targetId){
 }
 
 function renderInfractions(){
+  setPageTitle('Infraction Sheet');
   const searchBox = `<input class="search" id="search" placeholder="Search infractions…" />`;
   let html = searchBox;
   for (const group of INF){
