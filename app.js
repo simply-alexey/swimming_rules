@@ -63,9 +63,9 @@ function renderHome(){
 
 
 function renderCategory(code, targetId){
-  setPageTitle(cat.name);
   const cat = DATA.categories.find(c => c.code === code);
   if (!cat) return view.innerHTML = `<p>Category not found.</p>`;
+  setPageTitle(cat.name);
 
   const searchBox = `<input class="search" id="search" placeholder="Search ${cat.name}…" />`;
   const items = (cat.rules || []).map(r => `
@@ -85,10 +85,11 @@ function renderCategory(code, targetId){
 }
 
 function renderOther(code, targetId){
-  setPageTitle(page.name);
   const other = DATA.categories.find(c => c.code === 'other');
   const page = (other.submenu || []).find(x => x.code === code);
   if (!page) return renderOtherHome();
+
+ setPageTitle(page.name);
 
   const searchBox = `<input class="search" id="search" placeholder="Search ${page.name}…" />`;
   const items = (page.rules || []).map(r => `
