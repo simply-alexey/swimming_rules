@@ -42,13 +42,13 @@ function route(){
 function setFootnote(text){ foot.textContent = text || ''; }
 
 function renderHome(){
-    setPageTitle('Swimming Rules');
+  setPageTitle('Swimming Rules');
   view.innerHTML = `
     <div class="grid">
-      <a class="tile" href="#cat/freestyle">Freestyle</a>
-      <a class="tile" href="#cat/backstroke">Backstroke</a>
-      <a class="tile" href="#cat/breaststroke">Breaststroke</a>
-      <a class="tile" href="#cat/butterfly">Butterfly</a>
+      <a class="tile stroke" href="#cat/freestyle">Freestyle</a>
+      <a class="tile stroke" href="#cat/backstroke">Backstroke</a>
+      <a class="tile stroke" href="#cat/breaststroke">Breaststroke</a>
+      <a class="tile stroke" href="#cat/butterfly">Butterfly</a>
 
       <a class="tile" href="#other/the-start">The Start</a>
       <a class="tile" href="#other/medley">Medley Swimming</a>
@@ -60,6 +60,7 @@ function renderHome(){
   `;
   setFootnote('');
 }
+
 
 
 function renderCategory(code, targetId){
