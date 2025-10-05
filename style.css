@@ -65,8 +65,8 @@ input.search{width:100%;padding:.6rem .8rem;border:1px solid var(--border);borde
 
 /* 🔹 Home icon styling */
 .icon-img {
-  width: 22px;
-  height: 22px;
+  width: 28px;
+  height: 28px;
   filter: brightness(0);  /* makes sure it's pure black */
   vertical-align: middle;
 }
