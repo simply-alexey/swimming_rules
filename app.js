@@ -42,12 +42,18 @@ function renderHome(){
       <a class="tile" href="#cat/backstroke">Backstroke</a>
       <a class="tile" href="#cat/breaststroke">Breaststroke</a>
       <a class="tile" href="#cat/butterfly">Butterfly</a>
-      <a class="tile" href="#other">Other Rules</a>
+
+      <a class="tile" href="#other/the-start">The Start</a>
+      <a class="tile" href="#other/medley">Medley Swimming</a>
+      <a class="tile" href="#other/the-race">The Race</a>
+      <a class="tile" href="#other/swimwear">Swimwear & Wearables</a>
+
       <a class="tile" href="#infractions">Infraction Sheet</a>
     </div>
   `;
   setFootnote('');
 }
+
 
 function renderCategory(code, targetId){
   const cat = DATA.categories.find(c => c.code === code);
@@ -68,18 +74,6 @@ function renderCategory(code, targetId){
 
   const input = document.getElementById('search');
   input.addEventListener('input', e => filterRules(cat.rules, e.target.value, searchBox));
-}
-
-function renderOtherHome(){
-  view.innerHTML = `
-    <div class="grid">
-      <a class="tile" href="#other/the-start">The Start</a>
-      <a class="tile" href="#other/medley">Medley Swimming</a>
-      <a class="tile" href="#other/the-race">The Race</a>
-      <a class="tile" href="#other/swimwear">Swimwear & Wearables</a>
-      <a class="tile" href="#infractions">Infraction Sheet</a>
-    </div>`;
-  setFootnote('');
 }
 
 function renderOther(code, targetId){
