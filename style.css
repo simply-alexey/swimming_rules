@@ -48,3 +48,17 @@ input.search{width:100%;padding:.6rem .8rem;border:1px solid var(--border);borde
 @media (min-width:640px){
   .grid{grid-template-columns:repeat(3, minmax(0,1fr))}
 }
+/* 🔹 Highlight main stroke buttons */
+.tile.stroke {
+  background-color: #e9f3ff;     /* very light blue */
+  font-size: 1.2em;              /* slightly larger text */
+  font-weight: 600;
+  padding: 1.2em 0.8em;          /* bigger tap area */
+  border: 1px solid #c8dfff;     /* subtle border */
+}
+
+.tile.stroke:hover {
+  background-color: #dcecff;     /* a bit deeper blue on hover */
+  transform: scale(1.03);
+  transition: all 0.2s ease-in-out;
+}
