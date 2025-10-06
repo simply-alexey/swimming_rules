@@ -80,3 +80,7 @@ input.search{width:100%;padding:.6rem .8rem;border:1px solid var(--border);borde
   transform: scale(1.05);
   transition: all 0.2s ease-in-out;
 }
+/* Hide back button when on Home screen */
+.hidden {
+  display: none !important;
+}
