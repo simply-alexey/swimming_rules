@@ -4,8 +4,10 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Swimming Rules Reference</title>
+
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="stylesheet" href="style.css">
+
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <link rel="apple-touch-icon" href="icon-192.png">
@@ -14,21 +16,21 @@
 
 <body>
   <header class="topbar">
+    <!-- 🔹 Back button -->
     <button class="btn icon" id="btnBack" title="Back">
-  <img src="back.svg" alt="Back" class="icon-img" id="backIcon">
-</button>
-    
-    <!-- 🔹 Changed this line: added an id so JS can update it -->
-    <h1 class="app-title" id="pageTitle">Swimming Rules</h1>
-    
-    <button class="btn icon" id="btnHome" title="Home">
-  <img src="home icon.png" alt="Home" class="icon-img">
-</button>
+      <img src="back.svg" alt="Back" class="icon-img" id="backIcon">
+    </button>
 
+    <!-- 🔹 Page title (updated dynamically by JS) -->
+    <h1 class="app-title" id="pageTitle">Swimming Rules</h1>
+
+    <!-- 🔹 Home button -->
+    <button class="btn icon" id="btnHome" title="Home">
+      <img src="home.png" alt="Home" class="icon-img">
+    </button>
   </header>
 
   <main id="view"></main>
-
   <footer class="footnote" id="foot"></footer>
 
   <script type="module" src="app.js"></script>
