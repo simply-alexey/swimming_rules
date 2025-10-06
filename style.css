@@ -18,9 +18,11 @@ html, body {
 }
 
 /* 🔹 Sticky white header bar with centered title */
-.topbar {
-  position: sticky;
+ .topbar {
+  position: fixed;        /* ✅ make it fixed, not sticky */
   top: 0;
+  left: 0;
+  width: 100%;
   z-index: 100;
   background-color: #ffffff;
   border-bottom: 1px solid var(--border);
@@ -28,7 +30,7 @@ html, body {
   align-items: center;
   justify-content: space-between;
   padding: 0.5rem 0.75rem;
-  position: relative; /* for absolute centering of title */
+  height: 3rem;           /* optional: set fixed height for layout stability */
 }
 
 .app-title {
@@ -71,6 +73,7 @@ html, body {
 
 main#view {
   padding: 1rem;
+  padding-top: 4rem;
   max-width: 880px;
   margin: 0 auto;
 }
