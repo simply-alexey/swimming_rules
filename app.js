@@ -43,6 +43,7 @@ function setFootnote(text){ foot.textContent = text || ''; }
 
 function renderHome(){
   setPageTitle('Swimming Rules');
+    btnBack.classList.add('hidden');
   view.innerHTML = `
     <div class="grid">
       <a class="tile stroke" href="#cat/freestyle">Freestyle</a>
@@ -59,6 +60,7 @@ function renderHome(){
     </div>
   `;
   setFootnote('');
+
 }
 
 
@@ -67,6 +69,7 @@ function renderCategory(code, targetId){
   const cat = DATA.categories.find(c => c.code === code);
   if (!cat) return view.innerHTML = `<p>Category not found.</p>`;
   setPageTitle(cat.name);
+  btnBack.classList.remove('hidden');
 
   const searchBox = `<input class="search" id="search" placeholder="Search ${cat.name}…" />`;
   const items = (cat.rules || []).map(r => `
@@ -91,6 +94,7 @@ function renderOther(code, targetId){
   if (!page) return renderOtherHome();
 
  setPageTitle(page.name);
+  btnBack.classList.remove('hidden');
 
   const searchBox = `<input class="search" id="search" placeholder="Search ${page.name}…" />`;
   const items = (page.rules || []).map(r => `
@@ -107,10 +111,12 @@ function renderOther(code, targetId){
 
   const input = document.getElementById('search');
   input.addEventListener('input', e => filterRules(page.rules, e.target.value, searchBox));
+
 }
 
 function renderInfractions(){
   setPageTitle('Infraction Sheet');
+  btnBack.classList.remove('hidden');
   const searchBox = `<input class="search" id="search" placeholder="Search infractions…" />`;
   let html = searchBox;
   for (const group of INF){
@@ -129,6 +135,7 @@ function renderInfractions(){
           </tbody></table>
         </div>
       </details>`;
+    
   }
   view.innerHTML = html;
   setFootnote('v. 13 Dec 2024');
