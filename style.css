@@ -17,31 +17,30 @@ html, body {
   font: 16px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, system-ui, sans-serif;
 }
 
-/* 🔹 Sticky white header bar with centered title */
- .topbar {
-  position: fixed;        /* ✅ make it fixed, not sticky */
+/* 🔹 Fixed white header bar with centered title */
+.topbar {
+  position: fixed;
   top: 0;
   left: 0;
+  right: 0;
   width: 100%;
-  z-index: 100;
+  z-index: 1000;
   background-color: #ffffff;
   border-bottom: 1px solid var(--border);
-  display: flex;
+  height: 3rem;
+  display: grid; /* use grid to balance buttons & center title */
+  grid-template-columns: 2.5rem 1fr 2.5rem; /* left / center / right */
   align-items: center;
-  justify-content: space-between;
-  padding: 0.5rem 0.75rem;
-  height: 3rem;           /* optional: set fixed height for layout stability */
+  padding: 0 0.75rem;
 }
 
 .app-title {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  margin: 0;
-  font-size: 1.05rem;
   text-align: center;
+  font-size: 1.05rem;
+  margin: 0;
   white-space: nowrap;
-  pointer-events: none; /* keeps icons clickable */
+  justify-self: center;
+  pointer-events: none; /* ensures icons remain clickable */
 }
 
 /* 🔹 Buttons */
@@ -73,7 +72,7 @@ html, body {
 
 main#view {
   padding: 1rem;
-  padding-top: 4rem;
+  padding-top: 4.5rem; /* extra space for the fixed header height */
   max-width: 880px;
   margin: 0 auto;
 }
