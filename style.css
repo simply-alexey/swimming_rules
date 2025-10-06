@@ -1,86 +1,204 @@
 /* White & blue minimal theme */
-:root{
-  --blue:#0b57d0;
-  --border:#e6e6e6;
-  --text:#111;
-  --muted:#666;
-  --bg:#fff;
-}
-*{box-sizing:border-box}
-html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font:16px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, system-ui, sans-serif;}
-.topbar{
-  position:sticky;top:0;z-index:10;background:#fff;border-bottom:1px solid var(--border);
-  display:flex;align-items:center;justify-content:space-between;padding:.5rem .75rem;
-}
-.app-title{font-size:1.05rem;margin:0}
-.btn{border:none;background:#f7f9ff;border:1px solid var(--border);padding:.5rem .8rem;border-radius:.7rem;cursor:pointer}
-.btn.icon{width:2.25rem;height:2.25rem;display:flex;align-items:center;justify-content:center;padding:0;font-size:1.1rem}
-.btn.primary{background:var(--blue);color:#fff;border-color:var(--blue)}
-
-main#view{padding:1rem;max-width:880px;margin:0 auto}
-.grid{
-  display:grid;gap:.75rem;
-  grid-template-columns:repeat(2, minmax(0,1fr));
-}
-.tile{
-  display:flex;align-items:center;justify-content:center;
-  padding:1.1rem;border:1px solid var(--border);border-radius:1rem;background:#fff;
-  box-shadow:0 1px 4px rgba(0,0,0,.05);
-  text-align:center;font-weight:600;color:var(--blue);text-decoration:none
-}
-.card{border:1px solid var(--border);border-radius:1rem;padding:1rem;background:#fff;box-shadow:0 1px 4px rgba(0,0,0,.05);margin:.75rem 0}
-.card h2{margin:.2rem 0 .4rem}
-.code{font-family:ui-monospace, SFMono-Regular, Menlo, monospace;background:#f6f8ff;border:1px solid var(--border);padding:.05rem .35rem;border-radius:.35rem}
-.small{color:var(--muted);font-size:.85rem}
-input.search{width:100%;padding:.6rem .8rem;border:1px solid var(--border);border-radius:.7rem;margin-bottom:.5rem}
-
-.collapsible{border:1px solid var(--border);border-radius:.8rem;background:#fff;margin:.5rem 0}
-.collapsible summary{list-style:none;cursor:pointer;padding:.8rem 1rem;border-radius:.8rem;color:var(--blue);font-weight:600}
-.collapsible summary::-webkit-details-marker{display:none}
-.collapsible table{width:100%;border-collapse:collapse}
-.collapsible td{padding:.45rem .8rem;border-top:1px solid var(--border);vertical-align:top}
-.collapsible tr:first-child td{border-top:none}
-.section-title{margin:.2rem 0 .6rem;font-size:1.1rem}
-
-.footnote{max-width:880px;margin:0 auto;padding:0 1rem 1rem;color:var(--muted);font-size:.85rem}
-.hidden{display:none}
-
-@media (min-width:640px){
-  .grid{grid-template-columns:repeat(3, minmax(0,1fr))}
-}
-/* 🔹 Highlight main stroke buttons */
-.tile.stroke {
-  background-color: #e9f3ff;     /* very light blue */
-  font-size: 1.2em;              /* slightly larger text */
-  font-weight: 600;
-  padding: 1.2em 0.8em;          /* bigger tap area */
-  border: 1px solid #c8dfff;     /* subtle border */
+:root {
+  --blue: #0b57d0;
+  --border: #e6e6e6;
+  --text: #111;
+  --muted: #666;
+  --bg: #fff;
 }
 
-.tile.stroke:hover {
-  background-color: #dcecff;     /* a bit deeper blue on hover */
-  transform: scale(1.03);
-  transition: all 0.2s ease-in-out;
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 16px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, system-ui, sans-serif;
 }
 
-/* 🔹 Home icon styling */
-.icon-img {
-  width: 28px;
-  height: 28px;
-  filter: brightness(0);  /* makes sure it's pure black */
-  vertical-align: middle;
+/* 🔹 Sticky white header bar */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: #ffffff;           /* white background for icons */
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 0.75rem;
 }
+
+.app-title {
+  font-size: 1.05rem;
+  margin: 0;
+}
+
+/* 🔹 Buttons */
+.btn {
+  border: none;
+  background: #f7f9ff;
+  border: 1px solid var(--border);
+  padding: 0.5rem 0.8rem;
+  border-radius: 0.7rem;
+  cursor: pointer;
+}
+
 .btn.icon {
+  width: 2.25rem;
+  height: 2.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: none;
   border: none;
   padding: 6px;
 }
+
+.btn.primary {
+  background: var(--blue);
+  color: #fff;
+  border-color: var(--blue);
+}
+
+main#view {
+  padding: 1rem;
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+/* 🔹 Button grid on Home screen */
+.grid {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.tile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.1rem;
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  background: #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, .05);
+  text-align: center;
+  font-weight: 600;
+  color: var(--blue);
+  text-decoration: none;
+}
+
+.card {
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  padding: 1rem;
+  background: #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, .05);
+  margin: .75rem 0;
+}
+
+.card h2 { margin: .2rem 0 .4rem; }
+
+.code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  background: #f6f8ff;
+  border: 1px solid var(--border);
+  padding: .05rem .35rem;
+  border-radius: .35rem;
+}
+
+.small {
+  color: var(--muted);
+  font-size: .85rem;
+}
+
+input.search {
+  width: 100%;
+  padding: .6rem .8rem;
+  border: 1px solid var(--border);
+  border-radius: .7rem;
+  margin-bottom: .5rem;
+}
+
+/* 🔹 Collapsible panels (infractions) */
+.collapsible {
+  border: 1px solid var(--border);
+  border-radius: .8rem;
+  background: #fff;
+  margin: .5rem 0;
+}
+
+.collapsible summary {
+  list-style: none;
+  cursor: pointer;
+  padding: .8rem 1rem;
+  border-radius: .8rem;
+  color: var(--blue);
+  font-weight: 600;
+}
+
+.collapsible summary::-webkit-details-marker { display: none; }
+
+.collapsible table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.collapsible td {
+  padding: .45rem .8rem;
+  border-top: 1px solid var(--border);
+  vertical-align: top;
+}
+
+.collapsible tr:first-child td { border-top: none; }
+
+.section-title {
+  margin: .2rem 0 .6rem;
+  font-size: 1.1rem;
+}
+
+.footnote {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 0 1rem 1rem;
+  color: var(--muted);
+  font-size: .85rem;
+}
+
+.hidden { display: none !important; }
+
+/* 🔹 Highlight main stroke buttons */
+.tile.stroke {
+  background-color: #e9f3ff;      /* very light blue */
+  font-size: 1.2em;               /* slightly larger text */
+  font-weight: 600;
+  padding: 1.2em 0.8em;           /* bigger tap area */
+  border: 1px solid #c8dfff;      /* subtle border */
+}
+
+.tile.stroke:hover {
+  background-color: #dcecff;      /* deeper blue on hover */
+  transform: scale(1.03);
+  transition: all 0.2s ease-in-out;
+}
+
+/* 🔹 Icon styling for Home & Back buttons */
+.icon-img {
+  width: 28px;
+  height: 28px;
+  filter: brightness(0) contrast(150%);  /* ensure solid black on white */
+  vertical-align: middle;
+}
+
 .btn.icon:hover .icon-img {
   opacity: 0.7;
   transform: scale(1.05);
   transition: all 0.2s ease-in-out;
 }
-/* Hide back button when on Home screen */
-.hidden {
-  display: none !important;
+
+/* 🔹 Responsive layout */
+@media (min-width: 640px) {
+  .grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
