@@ -2,6 +2,7 @@ const view = document.getElementById('view');
 const pageTitle = document.getElementById('pageTitle');
 const foot = document.getElementById('foot');
 const btnBack = document.getElementById('btnBack');
+btnBack.classList.add('hidden');
 const btnHome = document.getElementById('btnHome');
 
 function setPageTitle(title) {
@@ -33,7 +34,7 @@ function route(){
   const parts = hash.split('/');
   if (parts[0] === 'cat' && parts[1]) renderCategory(parts[1]);
   else if (parts[0] === 'other' && parts[1]) renderOther(parts[1]);
-  else if (parts[0] === 'other') renderOtherHome();
+  else if (parts[0] === 'other') renderHome();
   else if (parts[0] === 'infractions') renderInfractions();
   else if (parts[0] === 'link') handleLink(parts);
   else renderHome();
