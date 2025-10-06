@@ -22,12 +22,28 @@ html, body {
   position: sticky;
   top: 0;
   z-index: 100;
-  background-color: #ffffff;           /* white background for icons */
+  background-color: #ffffff;
   border-bottom: 1px solid var(--border);
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0.5rem 0.75rem;
+}
+
+/* 🔹 Keep title always centered visually */
+.topbar {
+  position: relative;
+}
+
+.app-title {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0;
+  font-size: 1.05rem;
+  text-align: center;
+  white-space: nowrap;
+  pointer-events: none; /* ensures icons remain clickable */
 }
 
 .app-title {
