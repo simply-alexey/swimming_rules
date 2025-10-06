@@ -17,7 +17,7 @@ html, body {
   font: 16px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, system-ui, sans-serif;
 }
 
-/* 🔹 Sticky white header bar */
+/* 🔹 Sticky white header bar with centered title */
 .topbar {
   position: sticky;
   top: 0;
@@ -28,11 +28,7 @@ html, body {
   align-items: center;
   justify-content: space-between;
   padding: 0.5rem 0.75rem;
-}
-
-/* 🔹 Keep title always centered visually */
-.topbar {
-  position: relative;
+  position: relative; /* for absolute centering of title */
 }
 
 .app-title {
@@ -43,12 +39,7 @@ html, body {
   font-size: 1.05rem;
   text-align: center;
   white-space: nowrap;
-  pointer-events: none; /* ensures icons remain clickable */
-}
-
-.app-title {
-  font-size: 1.05rem;
-  margin: 0;
+  pointer-events: none; /* keeps icons clickable */
 }
 
 /* 🔹 Buttons */
