@@ -176,7 +176,11 @@ input.search {
   font-size: .85rem;
 }
 
-.hidden { display: none !important; }
+.hidden {
+  visibility: hidden !important;  /* keep space reserved */
+  pointer-events: none;           /* disable clicks */
+}
+
 
 /* 🔹 Highlight main stroke buttons */
 .tile.stroke {
