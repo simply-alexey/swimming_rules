@@ -9,30 +9,19 @@ function setPageTitle(title) {
   pageTitle.textContent = title || 'Swimming Rules';
 }
 
-
 let DATA = null;
 let INF = null;
 
 if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js');
 
 btnBack.addEventListener('click', () => {
-  btnBack.classList.add('hidden');
-  btnHome.classList.add('hidden');
-  requestAnimationFrame(() => {             // wait one frame
-    if (history.length > 1) history.back();
-    else location.hash = '';
-  });
+  if (history.length > 1) history.back();
+  else location.hash = '';
 });
 
 btnHome.addEventListener('click', () => {
-  btnBack.classList.add('hidden');
-  btnHome.classList.add('hidden');
-  requestAnimationFrame(() => {             // wait one frame
-    location.hash = '';
-  });
+  location.hash = '';
 });
-
-
 
 window.addEventListener('hashchange', route);
 
@@ -48,34 +37,32 @@ function route(){
 
   if (!hash) {
     btnBack.classList.add('hidden');
-    btnHome.classList.add('hidden');  // ✅ hide instantly before rendering
+    btnHome.classList.add('hidden');
     return renderHome();
   }
 
   const parts = hash.split('/');
+  
+  // Show buttons for all non-home pages
+  btnBack.classList.remove('hidden');
+  btnHome.classList.remove('hidden');
+  
   if (parts[0] === 'cat' && parts[1]) renderCategory(parts[1]);
   else if (parts[0] === 'other' && parts[1]) renderOther(parts[1]);
-  else if (parts[0] === 'other') {
-    btnBack.classList.add('hidden');
-    btnHome.classList.add('hidden');  // ✅ also here, just in case
-    renderHome();
-  }
   else if (parts[0] === 'infractions') renderInfractions();
   else if (parts[0] === 'link') handleLink(parts);
   else {
+    // Fallback to home
     btnBack.classList.add('hidden');
-    btnHome.classList.add('hidden');  // ✅ fallback case
+    btnHome.classList.add('hidden');
     renderHome();
   }
 }
-
 
 function setFootnote(text){ foot.textContent = text || ''; }
 
 function renderHome(){
   setPageTitle('Swimming Rules');
-    btnBack.classList.add('hidden');
-    btnHome.classList.add('hidden');
   view.innerHTML = `
     <div class="grid">
       <a class="tile stroke" href="#cat/freestyle">Freestyle</a>
@@ -92,17 +79,12 @@ function renderHome(){
     </div>
   `;
   setFootnote('');
-
 }
-
-
 
 function renderCategory(code, targetId){
   const cat = DATA.categories.find(c => c.code === code);
   if (!cat) return view.innerHTML = `<p>Category not found.</p>`;
   setPageTitle(cat.name);
-  btnBack.classList.remove('hidden');
-  btnHome.classList.remove('hidden');
 
   const searchBox = `<input class="search" id="search" placeholder="Search ${cat.name}…" />`;
   const items = (cat.rules || []).map(r => `
@@ -126,9 +108,7 @@ function renderOther(code, targetId){
   const page = (other.submenu || []).find(x => x.code === code);
   if (!page) return renderOtherHome();
 
- setPageTitle(page.name);
-  btnBack.classList.remove('hidden');
-  btnHome.classList.remove('hidden');
+  setPageTitle(page.name);
   const searchBox = `<input class="search" id="search" placeholder="Search ${page.name}…" />`;
   const items = (page.rules || []).map(r => `
     <article class="card" id="${r.id}">
@@ -144,13 +124,10 @@ function renderOther(code, targetId){
 
   const input = document.getElementById('search');
   input.addEventListener('input', e => filterRules(page.rules, e.target.value, searchBox));
-
 }
 
 function renderInfractions(){
   setPageTitle('Infraction Sheet');
-  btnBack.classList.remove('hidden');
-  btnHome.classList.remove('hidden');
   const searchBox = `<input class="search" id="search" placeholder="Search infractions…" />`;
   let html = searchBox;
   for (const group of INF){
@@ -169,7 +146,6 @@ function renderInfractions(){
           </tbody></table>
         </div>
       </details>`;
-    
   }
   view.innerHTML = html;
   setFootnote('v. 13 Dec 2024');
