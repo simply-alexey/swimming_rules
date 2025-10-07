@@ -29,16 +29,30 @@ async function init() {
 
 function route(){
   const hash = location.hash.slice(1);
-  if (!hash) return renderHome();
+
+  if (!hash) {
+    btnBack.classList.add('hidden');
+    btnHome.classList.add('hidden');  // ✅ hide instantly before rendering
+    return renderHome();
+  }
 
   const parts = hash.split('/');
   if (parts[0] === 'cat' && parts[1]) renderCategory(parts[1]);
   else if (parts[0] === 'other' && parts[1]) renderOther(parts[1]);
-  else if (parts[0] === 'other') renderHome();
+  else if (parts[0] === 'other') {
+    btnBack.classList.add('hidden');
+    btnHome.classList.add('hidden');  // ✅ also here, just in case
+    renderHome();
+  }
   else if (parts[0] === 'infractions') renderInfractions();
   else if (parts[0] === 'link') handleLink(parts);
-  else renderHome();
+  else {
+    btnBack.classList.add('hidden');
+    btnHome.classList.add('hidden');  // ✅ fallback case
+    renderHome();
+  }
 }
+
 
 function setFootnote(text){ foot.textContent = text || ''; }
 
