@@ -176,9 +176,12 @@ input.search {
   font-size: .85rem;
 }
 
-.hidden {
-  visibility: hidden !important;  /* keep space reserved */
-  pointer-events: none;           /* disable clicks */
+ .hidden {
+  visibility: hidden !important;
+  pointer-events: none;
+  opacity: 0;
+}
+
 }
 
 
