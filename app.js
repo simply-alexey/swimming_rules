@@ -23,6 +23,15 @@ btnHome.addEventListener('click', () => {
   location.hash = '';
 });
 
+// Prevent visible flicker when returning home
+window.addEventListener('hashchange', () => {
+  if (!location.hash || location.hash === '#') {
+    btnBack.classList.add('hidden');
+    btnHome.classList.add('hidden');
+  }
+}, { capture: true });
+
+
 window.addEventListener('hashchange', route);
 
 async function init() {
