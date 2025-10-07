@@ -18,15 +18,20 @@ if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js');
 btnBack.addEventListener('click', () => {
   btnBack.classList.add('hidden');
   btnHome.classList.add('hidden');
-  if (history.length > 1) history.back();
-  else location.hash = '';
+  requestAnimationFrame(() => {             // wait one frame
+    if (history.length > 1) history.back();
+    else location.hash = '';
+  });
 });
 
 btnHome.addEventListener('click', () => {
   btnBack.classList.add('hidden');
   btnHome.classList.add('hidden');
-  location.hash = '';
+  requestAnimationFrame(() => {             // wait one frame
+    location.hash = '';
+  });
 });
+
 
 
 window.addEventListener('hashchange', route);
