@@ -187,18 +187,20 @@ input.search {
 
 /* 🔹 Highlight main stroke buttons */
 .tile.stroke {
-  background-color: #e9f3ff;      /* very light blue */
-  font-size: 1.2em;               /* slightly larger text */
+  background-color: #e9f3ff;   /* very light blue */
+  font-size: 1.25em;           /* larger text */
   font-weight: 600;
-  padding: 1.2em 0.8em;           /* bigger tap area */
-  border: 1px solid #c8dfff;      /* subtle border */
+  padding: 1.4em 1em;          /* bigger tap area */
+  border: 1px solid #c8dfff;   /* subtle blue border */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
 }
 
 .tile.stroke:hover {
-  background-color: #dcecff;      /* deeper blue on hover */
+  background-color: #dcecff;   /* slightly deeper blue on hover */
   transform: scale(1.03);
   transition: all 0.2s ease-in-out;
 }
+
 
 /* 🔹 Icon styling for Home & Back buttons */
 .icon-img {
