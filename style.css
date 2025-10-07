@@ -176,21 +176,18 @@ input.search {
   font-size: .85rem;
 }
 
- .hidden {
+.hidden {
   visibility: hidden !important;
   pointer-events: none;
   opacity: 0;
 }
 
-}
-
-
 /* 🔹 Highlight main stroke buttons */
 .tile.stroke {
   background-color: #e9f3ff;   /* very light blue */
-  font-size: 1.25em;           /* larger text */
+  font-size: 1.35em;           /* larger text */
   font-weight: 600;
-  padding: 1.4em 1em;          /* bigger tap area */
+  padding: 1.6em 1em;          /* bigger tap area */
   border: 1px solid #c8dfff;   /* subtle blue border */
   box-shadow: 0 2px 6px rgba(0,0,0,0.05);
 }
@@ -200,7 +197,6 @@ input.search {
   transform: scale(1.03);
   transition: all 0.2s ease-in-out;
 }
-
 
 /* 🔹 Icon styling for Home & Back buttons */
 .icon-img {
