@@ -15,8 +15,19 @@ let INF = null;
 
 if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js');
 
-btnBack.addEventListener('click', () => history.length > 1 ? history.back() : (location.hash = ''));
-btnHome.addEventListener('click', () => location.hash = '');
+btnBack.addEventListener('click', () => {
+  btnBack.classList.add('hidden');
+  btnHome.classList.add('hidden');
+  if (history.length > 1) history.back();
+  else location.hash = '';
+});
+
+btnHome.addEventListener('click', () => {
+  btnBack.classList.add('hidden');
+  btnHome.classList.add('hidden');
+  location.hash = '';
+});
+
 
 window.addEventListener('hashchange', route);
 
