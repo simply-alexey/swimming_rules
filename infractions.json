@@ -205,7 +205,7 @@
       {
         "description": "Backstroke, breaststroke or butterfly swum in the freestyle section",
         "rule": "5.1",
-         "link": "#link/other/medley/FR-5.1"
+        "link": "#link/cat/freestyle/FR-5.1"      
       },
       {
         "description": "Incorrect individual medley stroke order",
@@ -251,7 +251,7 @@
       {
         "description": "Took a stride or step from the bottom of the pool",
         "rule": "10.5",
-         "link": "#link/cat/the-race/RA-10.5"
+         "link": "#link/other/the-race/RA-10.5"
       },
       {
         "description": "Stood on the bottom of the pool (except in freestyle)",
