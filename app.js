@@ -191,6 +191,8 @@ function renderUseful() {
 ===================== */
 function renderChecklist() {
   setPageTitle('Checklist');
+  const storageKey = 'checklistState'; // localStorage key
+
   const items = [
     '2 Stopwatches',
     '2 Pens',
@@ -204,14 +206,16 @@ function renderChecklist() {
     'Lunch',
     'Water bottle',
     'Electrolytes'
-    
   ];
+
+  // Load saved state or create default
+  const savedState = JSON.parse(localStorage.getItem(storageKey) || '{}');
 
   const listHTML = items
     .map(
-      item => `
+      (item, i) => `
       <label style="display:flex;align-items:center;gap:0.6rem;margin:0.4rem 0;">
-        <input type="checkbox" class="check-item" />
+        <input type="checkbox" class="check-item" data-index="${i}" ${savedState[i] ? 'checked' : ''} />
         <span>${item}</span>
       </label>`
     )
@@ -226,10 +230,22 @@ function renderChecklist() {
   const resetBtn = document.getElementById('resetChecklist');
   const checkboxes = document.querySelectorAll('.check-item');
 
+  // 🔹 Save state whenever any checkbox changes
+  checkboxes.forEach(cb => {
+    cb.addEventListener('change', () => {
+      const state = {};
+      checkboxes.forEach((box, i) => (state[i] = box.checked));
+      localStorage.setItem(storageKey, JSON.stringify(state));
+    });
+  });
+
+  // 🔹 Reset button clears all ticks and storage
   resetBtn.addEventListener('click', () => {
     checkboxes.forEach(cb => (cb.checked = false));
+    localStorage.removeItem(storageKey);
   });
 }
+
 
 /* =====================
    CATEGORY PAGE
