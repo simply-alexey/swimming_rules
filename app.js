@@ -70,25 +70,79 @@ function route(){
 
 function setFootnote(text){ foot.textContent = text || ''; }
 
-function renderHome(){
+function renderHome() {
   setPageTitle('Swimming Rules');
+  btnBack.classList.add('hidden');
+  btnHome.classList.add('hidden');
+
   view.innerHTML = `
-    <div class="grid">
+    <input class="search" id="search" placeholder="Search all rules…" />
+    <div class="grid" id="homeGrid">
       <a class="tile stroke" href="#cat/freestyle">Freestyle</a>
       <a class="tile stroke" href="#cat/backstroke">Backstroke</a>
       <a class="tile stroke" href="#cat/breaststroke">Breaststroke</a>
       <a class="tile stroke" href="#cat/butterfly">Butterfly</a>
-
       <a class="tile" href="#other/the-start">The Start</a>
       <a class="tile" href="#other/medley">Medley Swimming</a>
       <a class="tile" href="#other/the-race">The Race</a>
       <a class="tile" href="#other/swimwear">Swimwear & Wearables</a>
-
       <a class="tile" href="#infractions">Infraction Sheet</a>
     </div>
+    <div id="searchResults"></div>
   `;
   setFootnote('');
+
+  const input = document.getElementById('search');
+  const grid = document.getElementById('homeGrid');
+  const results = document.getElementById('searchResults');
+
+  input.addEventListener('input', e => {
+    const q = e.target.value.trim().toLowerCase();
+    if (!q) {
+      grid.style.display = 'grid';
+      results.innerHTML = '';
+      return;
+    }
+
+    grid.style.display = 'none';
+
+    const allRules = DATA.categories.flatMap(cat =>
+      (cat.rules || []).map(r => ({
+        ...r,
+        category: cat.name,
+        link: `#cat/${cat.code}/${r.id}`
+      }))
+    );
+
+    const otherRules = DATA.categories.find(c => c.code === 'other')?.submenu.flatMap(sub =>
+      (sub.rules || []).map(r => ({
+        ...r,
+        category: sub.name,
+        link: `#other/${sub.code}/${r.id}`
+      }))
+    ) || [];
+
+    const matches = [...allRules, ...otherRules].filter(r =>
+      r.title.toLowerCase().includes(q) ||
+      r.body.toLowerCase().includes(q) ||
+      r.id.toLowerCase().includes(q)
+    );
+
+    if (matches.length === 0) {
+      results.innerHTML = `<p>No matching rules found.</p>`;
+      return;
+    }
+
+    results.innerHTML = matches.map(r => `
+      <article class="card">
+        <div class="small"><span class="code">${r.id}</span> — ${r.category}</div>
+        <h2><a href="${r.link}" style="color:var(--blue);text-decoration:none;">${r.title}</a></h2>
+        <div>${r.body}</div>
+      </article>
+    `).join('');
+  });
 }
+
 
 function renderCategory(code, targetId){
   const cat = DATA.categories.find(c => c.code === code);
