@@ -197,13 +197,13 @@ function renderChecklist() {
     '2 Folders',
     'Towel',
     'Fan',
-    'Water bottle',
-    'Electrolytes',
     'Folding chair',
     'Coin for locker',
     'Parking pass',
     'Snacks',
     'Lunch'
+    'Water bottle',
+    'Electrolytes'
     
   ];
 
