@@ -83,7 +83,7 @@ function renderHome() {
 
   view.innerHTML = `
     <div class="search-container">
-      <input class="search" id="search" placeholder="Search all rules…" inputmode="none" />
+      <input class="search" id="search" placeholder="Search all rules…" />
       <button id="clearSearch" class="clear-btn" title="Clear search">✕</button>
     </div>
     <div class="grid" id="homeGrid">
