@@ -216,3 +216,34 @@ input.search {
 @media (min-width: 640px) {
   .grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
+
+/* 🔹 Search bar container & clear button */
+.search-container {
+  position: relative;
+  margin-bottom: 0.75rem;
+}
+
+.clear-btn {
+  position: absolute;
+  right: 0.6rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  color: var(--muted);
+  cursor: pointer;
+  display: none;
+}
+
+.clear-btn:hover {
+  color: var(--blue);
+}
+
+/* 🔹 Highlighted text in search results */
+mark {
+  background-color: #ffed9c;
+  color: inherit;
+  padding: 0 2px;
+  border-radius: 3px;
+}
