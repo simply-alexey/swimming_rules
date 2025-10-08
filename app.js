@@ -194,9 +194,17 @@ function renderChecklist() {
   const items = [
     '2 Stopwatches',
     '2 Pens',
-    'Folder',
+    '2 Folders',
     'Towel',
-    'Water bottle'
+    'Fan',
+    'Water bottle',
+    'Electrolytes',
+    'Folding chair',
+    'Coin for locker',
+    'Parking pass',
+    'Snacks',
+    'Lunch'
+    
   ];
 
   const listHTML = items
