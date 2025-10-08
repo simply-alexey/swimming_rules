@@ -61,6 +61,8 @@ function route() {
   if (parts[0] === 'cat' && parts[1]) renderCategory(parts[1]);
   else if (parts[0] === 'other' && parts[1]) renderOther(parts[1]);
   else if (parts[0] === 'infractions') renderInfractions();
+  else if (parts[0] === 'useful') renderUseful();
+  else if (parts[0] === 'checklist') renderChecklist();
   else if (parts[0] === 'link') handleLink(parts);
   else {
     btnBack.classList.add('hidden');
@@ -96,6 +98,7 @@ function renderHome() {
       <a class="tile" href="#other/the-race">The Race</a>
       <a class="tile" href="#other/swimwear">Swimwear & Wearables</a>
       <a class="tile" href="#infractions">Infraction Sheet</a>
+      <a class="tile" href="#useful">Useful</a>
     </div>
     <div id="searchResults"></div>
   `;
@@ -106,9 +109,7 @@ function renderHome() {
   const grid = document.getElementById('homeGrid');
   const results = document.getElementById('searchResults');
 
-  
-
-  // 🔹 Clear button
+  // Clear button
   clearBtn.addEventListener('click', () => {
     input.value = '';
     grid.style.display = 'grid';
@@ -155,7 +156,7 @@ function renderHome() {
       return;
     }
 
-    // 🔹 Highlight matches
+    // Highlight matches
     const highlight = (text) =>
       text.replace(new RegExp(`(${q})`, 'gi'), '<mark>$1</mark>');
 
@@ -172,6 +173,55 @@ function renderHome() {
   });
 }
 
+/* =====================
+   USEFUL PAGE
+===================== */
+function renderUseful() {
+  setPageTitle('Useful');
+  view.innerHTML = `
+    <div class="grid">
+      <a class="tile" href="#checklist">Checklist</a>
+    </div>
+  `;
+  setFootnote('');
+}
+
+/* =====================
+   CHECKLIST PAGE
+===================== */
+function renderChecklist() {
+  setPageTitle('Checklist');
+  const items = [
+    '2 Stopwatches',
+    '2 Pens',
+    'Folder',
+    'Towel',
+    'Water bottle'
+  ];
+
+  const listHTML = items
+    .map(
+      item => `
+      <label style="display:flex;align-items:center;gap:0.6rem;margin:0.4rem 0;">
+        <input type="checkbox" class="check-item" />
+        <span>${item}</span>
+      </label>`
+    )
+    .join('');
+
+  view.innerHTML = `
+    <button id="resetChecklist" class="btn" style="margin-bottom:1rem;">Reset</button>
+    <div>${listHTML}</div>
+  `;
+  setFootnote('');
+
+  const resetBtn = document.getElementById('resetChecklist');
+  const checkboxes = document.querySelectorAll('.check-item');
+
+  resetBtn.addEventListener('click', () => {
+    checkboxes.forEach(cb => (cb.checked = false));
+  });
+}
 
 /* =====================
    CATEGORY PAGE
