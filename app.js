@@ -106,10 +106,7 @@ function renderHome() {
   const grid = document.getElementById('homeGrid');
   const results = document.getElementById('searchResults');
 
-  // 🔹 Prevent screen zoom on iOS when focusing input
-  input.addEventListener('focus', () => {
-    document.activeElement.blur(); // disables zoom-in effect
-  });
+  
 
   // 🔹 Clear button
   clearBtn.addEventListener('click', () => {
