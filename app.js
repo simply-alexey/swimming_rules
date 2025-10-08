@@ -201,7 +201,7 @@ function renderChecklist() {
     'Coin for locker',
     'Parking pass',
     'Snacks',
-    'Lunch'
+    'Lunch',
     'Water bottle',
     'Electrolytes'
     
