@@ -82,7 +82,10 @@ function renderHome() {
   btnHome.classList.add('hidden');
 
   view.innerHTML = `
-    <input class="search" id="search" placeholder="Search all rules…" />
+    <div class="search-container">
+      <input class="search" id="search" placeholder="Search all rules…" inputmode="none" />
+      <button id="clearSearch" class="clear-btn" title="Clear search">✕</button>
+    </div>
     <div class="grid" id="homeGrid">
       <a class="tile stroke" href="#cat/freestyle">Freestyle</a>
       <a class="tile stroke" href="#cat/backstroke">Backstroke</a>
@@ -99,11 +102,26 @@ function renderHome() {
   setFootnote('');
 
   const input = document.getElementById('search');
+  const clearBtn = document.getElementById('clearSearch');
   const grid = document.getElementById('homeGrid');
   const results = document.getElementById('searchResults');
 
+  // 🔹 Prevent screen zoom on iOS when focusing input
+  input.addEventListener('focus', () => {
+    document.activeElement.blur(); // disables zoom-in effect
+  });
+
+  // 🔹 Clear button
+  clearBtn.addEventListener('click', () => {
+    input.value = '';
+    grid.style.display = 'grid';
+    results.innerHTML = '';
+    clearBtn.style.display = 'none';
+  });
+
   input.addEventListener('input', e => {
     const q = e.target.value.trim().toLowerCase();
+    clearBtn.style.display = q ? 'block' : 'none';
     if (!q) {
       grid.style.display = 'grid';
       results.innerHTML = '';
@@ -140,18 +158,23 @@ function renderHome() {
       return;
     }
 
+    // 🔹 Highlight matches
+    const highlight = (text) =>
+      text.replace(new RegExp(`(${q})`, 'gi'), '<mark>$1</mark>');
+
     results.innerHTML = matches
       .map(
         r => `
       <article class="card">
         <div class="small"><span class="code">${r.id}</span> — ${r.category}</div>
-        <h2><a href="${r.link}" style="color:var(--blue);text-decoration:none;">${r.title}</a></h2>
-        <div>${r.body}</div>
+        <h2><a href="${r.link}" style="color:var(--blue);text-decoration:none;">${highlight(r.title)}</a></h2>
+        <div>${highlight(r.body)}</div>
       </article>`
       )
       .join('');
   });
 }
+
 
 /* =====================
    CATEGORY PAGE
