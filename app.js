@@ -205,8 +205,8 @@ function renderChecklist() {
     'Snacks',
     'Lunch',
     'Water bottle',
-    'Electrolytes',
-    'Willpower'
+    'Electrolytes'
+    
   ];
 
   // Load saved state or create default
