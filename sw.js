@@ -1,5 +1,5 @@
 const CACHE='swim-rules-v2';
-const ASSETS=['.','index.html','style.css','app.js','rules.json','infractions.json','manifest.webmanifest'];
+const ASSETS=['.','index.html','style.css','app.js','rules.json','infractions.json','manifest-wa.webmanifest'];
 
 self.addEventListener('install',e=>{
   e.waitUntil(caches.open(CACHE).then(c=>c.addAll(ASSETS)));
