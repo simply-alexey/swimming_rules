@@ -27,7 +27,14 @@ self.addEventListener('activate', event => {
   self.clients.claim(); // ✅ Take control of all open pages
 });
 
-// 🔹 Cache-first fetch with network update fallback
+// 🔹 Handle messages from app.js (for skipWaiting call)
+self.addEventListener('message', (event) => {
+  if (event?.data?.action === 'skipWaiting') {
+    self.skipWaiting();
+  }
+});
+
+// 🔹 Cache-first fetch with background update
 self.addEventListener('fetch', event => {
   event.respondWith(
     caches.match(event.request).then(res => {
@@ -35,9 +42,11 @@ self.addEventListener('fetch', event => {
         // Update cache in background
         fetch(event.request).then(networkResponse => {
           if (networkResponse && networkResponse.ok) {
-            caches.open(CACHE).then(cache => cache.put(event.request, networkResponse.clone()));
+            caches.open(CACHE).then(cache =>
+              cache.put(event.request, networkResponse.clone())
+            );
           }
-        }).catch(() => {}); // ignore errors when offline
+        }).catch(() => {}); // ignore network errors (offline, etc.)
         return res;
       }
 
