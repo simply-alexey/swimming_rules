@@ -13,45 +13,56 @@ let DATA = null;
 let INF = null;
 
 /* =====================
-   SERVICE WORKER + UPDATE BANNER
+   SERVICE WORKER + UPDATE BANNER (robust)
 ===================== */
 if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('sw.js').then(reg => {
-    // Listen for updates
-    reg.addEventListener('updatefound', () => {
-      const newWorker = reg.installing;
-      newWorker.addEventListener('statechange', () => {
-        if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
-          // Show refresh prompt
-          const banner = document.createElement('div');
-          banner.textContent = 'A new version is available. Tap to refresh.';
-          Object.assign(banner.style, {
-            position: 'fixed',
-            bottom: '1rem',
-            left: '50%',
-            transform: 'translateX(-50%)',
-            background: '#0b57d0',
-            color: '#fff',
-            padding: '0.8rem 1.2rem',
-            borderRadius: '1rem',
-            cursor: 'pointer',
-            boxShadow: '0 2px 6px rgba(0,0,0,0.2)',
-            zIndex: 9999,
-            fontSize: '0.95rem'
-          });
-          banner.addEventListener('click', () => {
-            newWorker.postMessage({ action: 'skipWaiting' });
-          });
-          document.body.appendChild(banner);
-        }
-      });
-    });
-  });
+  (async () => {
+    try {
+      const reg = await navigator.serviceWorker.register('sw.js');
 
-  // Listen for message from the waiting service worker
-  navigator.serviceWorker.addEventListener('controllerchange', () => {
-    window.location.reload();
-  });
+      reg.addEventListener('updatefound', () => {
+        // In some edge cases installing can be null briefly—guard it
+        const newWorker = reg.installing;
+        if (!newWorker) return;
+
+        newWorker.addEventListener('statechange', () => {
+          try {
+            if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+              // Show refresh prompt once the new SW is installed but not yet controlling
+              const banner = document.createElement('div');
+              banner.textContent = 'A new version is available. Tap to refresh.';
+              Object.assign(banner.style, {
+                position: 'fixed',
+                bottom: '1rem',
+                left: '50%',
+                transform: 'translateX(-50%)',
+                background: '#0b57d0',
+                color: '#fff',
+                padding: '0.8rem 1.2rem',
+                borderRadius: '1rem',
+                cursor: 'pointer',
+                boxShadow: '0 2px 6px rgba(0,0,0,0.2)',
+                zIndex: 9999,
+                fontSize: '0.95rem'
+              });
+              banner.addEventListener('click', () => {
+                try { newWorker.postMessage({ action: 'skipWaiting' }); } catch {}
+              });
+              document.body.appendChild(banner);
+            }
+          } catch {}
+        });
+      });
+
+      // If the controller (active SW) changes, reload to get fresh assets
+      navigator.serviceWorker.addEventListener('controllerchange', () => {
+        window.location.reload();
+      });
+    } catch (err) {
+      // SW should never break the app; log and continue
+      console.error('SW registration failed:', err);
+    }
+  })();
 }
 
 /* =====================
@@ -66,7 +77,6 @@ btnHome.addEventListener('click', () => {
   location.hash = '';
 });
 
-// Prevent visible flicker when returning home
 window.addEventListener('hashchange', () => {
   if (!location.hash || location.hash === '#') {
     btnBack.classList.add('hidden');
@@ -80,15 +90,23 @@ window.addEventListener('hashchange', route);
    INITIAL LOAD
 ===================== */
 async function init() {
-  const [rulesRes, infraRes] = await Promise.all([
-    fetch('rules.json'),
-    fetch('infractions.json')
-  ]);
-  DATA = await rulesRes.json();
-  INF = await infraRes.json();
-  route();
+  try {
+    const [rulesRes, infraRes] = await Promise.all([
+      fetch('rules.json'),
+      fetch('infractions.json')
+    ]);
+    DATA = await rulesRes.json();
+    INF = await infraRes.json();
+    route();
+  } catch (err) {
+    console.error('Error loading data:', err);
+    view.innerHTML = `<p style="color:red">Failed to load data. Please refresh or check connection.</p>`;
+  }
 }
 
+/* =====================
+   ROUTER
+===================== */
 function route() {
   const hash = location.hash.slice(1);
 
@@ -122,7 +140,7 @@ function setFootnote(text) {
 }
 
 /* =====================
-   HOME SCREEN + GLOBAL SEARCH
+   HOME SCREEN + SEARCH
 ===================== */
 function renderHome() {
   setPageTitle('Swimming Rules');
@@ -140,4 +158,224 @@ function renderHome() {
       <a class="tile stroke" href="#cat/breaststroke">Breaststroke</a>
       <a class="tile stroke" href="#cat/butterfly">Butterfly</a>
       <a class="tile" href="#other/the-start">The Start</a>
-      <a
+      <a class="tile" href="#other/medley">Medley Swimming</a>
+      <a class="tile" href="#other/the-race">The Race</a>
+      <a class="tile" href="#other/swimwear">Swimwear & Wearables</a>
+      <a class="tile" href="#infractions">Infraction Sheet</a>
+      <a class="tile" href="#useful">Useful</a>
+    </div>
+    <div id="searchResults"></div>
+  `;
+  setFootnote('');
+
+  const input = document.getElementById('search');
+  const clearBtn = document.getElementById('clearSearch');
+  const grid = document.getElementById('homeGrid');
+  const results = document.getElementById('searchResults');
+
+  clearBtn.addEventListener('click', () => {
+    input.value = '';
+    grid.style.display = 'grid';
+    results.innerHTML = '';
+    clearBtn.style.display = 'none';
+  });
+
+  input.addEventListener('input', e => {
+    const q = e.target.value.trim().toLowerCase();
+    clearBtn.style.display = q ? 'block' : 'none';
+    if (!q) {
+      grid.style.display = 'grid';
+      results.innerHTML = '';
+      return;
+    }
+
+    grid.style.display = 'none';
+
+    const allRules = DATA.categories.flatMap(cat =>
+      (cat.rules || []).map(r => ({
+        ...r,
+        category: cat.name,
+        link: `#cat/${cat.code}/${r.id}`
+      }))
+    );
+
+    const otherRules =
+      DATA.categories.find(c => c.code === 'other')?.submenu.flatMap(sub =>
+        (sub.rules || []).map(r => ({
+          ...r,
+          category: sub.name,
+          link: `#other/${sub.code}/${r.id}`
+        }))
+      ) || [];
+
+    const matches = [...allRules, ...otherRules].filter(r =>
+      r.title.toLowerCase().includes(q) ||
+      r.body.toLowerCase().includes(q) ||
+      r.id.toLowerCase().includes(q)
+    );
+
+    if (matches.length === 0) {
+      results.innerHTML = `<p>No matching rules found.</p>`;
+      return;
+    }
+
+    const highlight = (text) =>
+      text.replace(new RegExp(`(${q})`, 'gi'), '<mark>$1</mark>');
+
+    results.innerHTML = matches.map(r => `
+      <article class="card">
+        <div class="small"><span class="code">${r.id}</span> — ${r.category}</div>
+        <h2><a href="${r.link}" style="color:var(--blue);text-decoration:none;">${highlight(r.title)}</a></h2>
+        <div>${highlight(r.body)}</div>
+      </article>
+    `).join('');
+  });
+}
+
+/* =====================
+   USEFUL PAGE
+===================== */
+function renderUseful() {
+  setPageTitle('Useful');
+  view.innerHTML = `
+    <div class="grid">
+      <a class="tile" href="#checklist">Checklist</a>
+    </div>
+  `;
+  setFootnote('');
+}
+
+/* =====================
+   CHECKLIST PAGE
+===================== */
+function renderChecklist() {
+  setPageTitle('Checklist');
+  const storageKey = 'checklistState';
+  const items = [
+    '2 Stopwatches', '2 Pens', '2 Folders', 'Towel', 'Fan', 'Folding chair',
+    'Coin for locker', 'Parking pass', 'Snacks', 'Lunch', 'Water bottle', 'Electrolytes'
+  ];
+  const savedState = JSON.parse(localStorage.getItem(storageKey) || '{}');
+
+  view.innerHTML = `
+    <button id="resetChecklist" class="btn" style="margin-bottom:1rem;">Reset</button>
+    <div>${items.map((item, i) => `
+      <label style="display:flex;align-items:center;gap:0.6rem;margin:0.4rem 0;">
+        <input type="checkbox" class="check-item" data-index="${i}" ${savedState[i] ? 'checked' : ''} />
+        <span>${item}</span>
+      </label>`).join('')}</div>
+  `;
+  setFootnote('');
+
+  const checkboxes = document.querySelectorAll('.check-item');
+  const resetBtn = document.getElementById('resetChecklist');
+
+  checkboxes.forEach(cb => {
+    cb.addEventListener('change', () => {
+      const state = {};
+      checkboxes.forEach((box, i) => (state[i] = box.checked));
+      localStorage.setItem(storageKey, JSON.stringify(state));
+    });
+  });
+
+  resetBtn.addEventListener('click', () => {
+    checkboxes.forEach(cb => (cb.checked = false));
+    localStorage.removeItem(storageKey);
+  });
+}
+
+/* =====================
+   CATEGORY PAGE
+===================== */
+function renderCategory(code, targetId) {
+  const cat = DATA.categories.find(c => c.code === code);
+  if (!cat) return (view.innerHTML = `<p>Category not found.</p>`);
+  setPageTitle(cat.name);
+  view.innerHTML = (cat.rules || []).map(r => `
+    <article class="card" id="${r.id}">
+      <div class="small"><span class="code">${r.id}</span></div>
+      <h2>${r.title}</h2>
+      <div>${r.body}</div>
+    </article>
+  `).join('');
+  setFootnote('eff. 1 Jan 2025');
+  if (targetId) scrollToRule(targetId);
+}
+
+/* =====================
+   OTHER PAGES
+===================== */
+function renderOther(code, targetId) {
+  const other = DATA.categories.find(c => c.code === 'other');
+  const page = (other.submenu || []).find(x => x.code === code);
+  if (!page) return;
+  setPageTitle(page.name);
+  view.innerHTML = (page.rules || []).map(r => `
+    <article class="card" id="${r.id}">
+      <div class="small"><span class="code">${r.id}</span></div>
+      <h2>${r.title}</h2>
+      <div>${r.body}</div>
+    </article>
+  `).join('');
+  setFootnote('eff. 1 Jan 2025');
+  if (targetId) scrollToRule(targetId);
+}
+
+/* =====================
+   INFRACTIONS
+===================== */
+function renderInfractions() {
+  setPageTitle('Infraction Sheet');
+  let html = '';
+  for (const group of INF) {
+    html += `
+      <details class="collapsible">
+        <summary>${group.section}</summary>
+        <div class="card" style="margin:0;border:none;box-shadow:none;padding:0;">
+          <table><tbody>
+            ${group.infractions.map(item => {
+              const makeLink = (href, label) =>
+                `<a href="${href || '#'}" class="code" style="color:#0b57d0;text-decoration:underline;">${label}</a>`;
+              let linksHtml = '';
+              if (Array.isArray(item.link)) {
+                linksHtml = item.link.map(l => makeLink(l, item.rule || l)).join(' or ');
+              } else {
+                linksHtml = makeLink(item.link, item.rule || (item.link || 'link'));
+              }
+              return `
+                <tr>
+                  <td style="width:70%">${item.description}</td>
+                  <td style="width:30%;text-align:right">${linksHtml}</td>
+                </tr>`;
+            }).join('')}
+          </tbody></table>
+        </div>
+      </details>`;
+  }
+  view.innerHTML = html;
+  setFootnote('v. 13 Dec 2024');
+}
+
+/* =====================
+   LINK HANDLER + SCROLL
+===================== */
+function handleLink(parts) {
+  const type = parts[1];
+  const sub = parts[2];
+  const ruleId = parts[3];
+  if (type === 'cat') renderCategory(sub, ruleId);
+  else if (type === 'other') renderOther(sub, ruleId);
+}
+
+function scrollToRule(ruleId) {
+  setTimeout(() => {
+    const el = document.getElementById(ruleId);
+    if (!el) return;
+    el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    el.style.transition = 'background 1.5s';
+    el.style.background = '#e7f1ff';
+    setTimeout(() => { el.style.background = ''; }, 2000);
+  }, 300);
+}
+
+init();
