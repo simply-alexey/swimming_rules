@@ -212,12 +212,13 @@
         "rule": "9.1",
          "link": "#link/other/medley/MS-9.1"
       },
-      {
-        "description": "In the freestyle section, did not return to the breast before any kick or stroke",
-        "rule": "9.1 or 9.2",
-         "link": ["#link/other/medley/MS-9.1", "#link/other/medley/MS-9.2"]
 
-      },
+      {
+  "description": "In the freestyle section, did not return to the breast before any kick or stroke",
+  "rule": ["9.1", "9.2"],
+  "link": ["#link/other/medley/MS-9.1", "#link/other/medley/MS-9.2"]
+}
+,
       {
         "description": "Incorrect medley relay stroke order",
         "rule": "9.3",
