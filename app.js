@@ -21,14 +21,12 @@ if ('serviceWorker' in navigator) {
       const reg = await navigator.serviceWorker.register('sw.js');
 
       reg.addEventListener('updatefound', () => {
-        // In some edge cases installing can be null briefly—guard it
         const newWorker = reg.installing;
         if (!newWorker) return;
 
         newWorker.addEventListener('statechange', () => {
           try {
             if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
-              // Show refresh prompt once the new SW is installed but not yet controlling
               const banner = document.createElement('div');
               banner.textContent = 'A new version is available. Tap to refresh.';
               Object.assign(banner.style, {
@@ -54,12 +52,10 @@ if ('serviceWorker' in navigator) {
         });
       });
 
-      // If the controller (active SW) changes, reload to get fresh assets
       navigator.serviceWorker.addEventListener('controllerchange', () => {
         window.location.reload();
       });
     } catch (err) {
-      // SW should never break the app; log and continue
       console.error('SW registration failed:', err);
     }
   })();
@@ -118,7 +114,6 @@ function route() {
 
   const parts = hash.split('/');
 
-  // Show buttons for all non-home pages
   btnBack.classList.remove('hidden');
   btnHome.classList.remove('hidden');
 
@@ -140,7 +135,7 @@ function setFootnote(text) {
 }
 
 /* =====================
-   HOME SCREEN + SEARCH
+   HOME SCREEN + SEARCH (Rules + Infractions)
 ===================== */
 function renderHome() {
   setPageTitle('Swimming Rules');
@@ -149,7 +144,7 @@ function renderHome() {
 
   view.innerHTML = `
     <div class="search-container">
-      <input class="search" id="search" placeholder="Search all rules…" />
+      <input class="search" id="search" placeholder="Search all rules & infractions…" />
       <button id="clearSearch" class="clear-btn" title="Clear search">✕</button>
     </div>
     <div class="grid" id="homeGrid">
@@ -208,19 +203,28 @@ function renderHome() {
         }))
       ) || [];
 
-    const matches = [...allRules, ...otherRules].filter(r =>
+    const allInfractions = INF.flatMap(group =>
+      group.infractions.map(item => ({
+        id: `INF-${group.section}-${item.rule}`,
+        title: item.description,
+        body: `Infraction (${group.section})`,
+        category: group.section,
+        link: Array.isArray(item.link) ? item.link[0] : item.link
+      }))
+    );
+
+    const matches = [...allRules, ...otherRules, ...allInfractions].filter(r =>
       r.title.toLowerCase().includes(q) ||
       r.body.toLowerCase().includes(q) ||
-      r.id.toLowerCase().includes(q)
+      (r.id && r.id.toLowerCase().includes(q))
     );
 
     if (matches.length === 0) {
-      results.innerHTML = `<p>No matching rules found.</p>`;
+      results.innerHTML = `<p>No matching rules or infractions found.</p>`;
       return;
     }
 
-    const highlight = (text) =>
-      text.replace(new RegExp(`(${q})`, 'gi'), '<mark>$1</mark>');
+    const highlight = text => text.replace(new RegExp(`(${q})`, 'gi'), '<mark>$1</mark>');
 
     results.innerHTML = matches.map(r => `
       <article class="card">
