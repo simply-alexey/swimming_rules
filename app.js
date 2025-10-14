@@ -331,6 +331,7 @@ function renderOther(code, targetId) {
 function renderInfractions() {
   setPageTitle('Infraction Sheet');
   let html = '';
+
   for (const group of INF) {
     html += `
       <details class="collapsible">
@@ -340,12 +341,20 @@ function renderInfractions() {
             ${group.infractions.map(item => {
               const makeLink = (href, label) =>
                 `<a href="${href || '#'}" class="code" style="color:#0b57d0;text-decoration:underline;">${label}</a>`;
+
               let linksHtml = '';
+
               if (Array.isArray(item.link)) {
-                linksHtml = item.link.map(l => makeLink(l, item.rule || l)).join(' or ');
+                // ✅ Handle multiple links and corresponding rule labels
+                const ruleLabels = Array.isArray(item.rule) ? item.rule : item.link;
+                linksHtml = item.link
+                  .map((l, i) => makeLink(l, ruleLabels[i] || l))
+                  .join(' or ');
               } else {
+                // ✅ Single rule & single link
                 linksHtml = makeLink(item.link, item.rule || (item.link || 'link'));
               }
+
               return `
                 <tr>
                   <td style="width:70%">${item.description}</td>
@@ -356,9 +365,11 @@ function renderInfractions() {
         </div>
       </details>`;
   }
+
   view.innerHTML = html;
   setFootnote('v. 13 Dec 2024');
 }
+
 
 /* =====================
    LINK HANDLER + SCROLL
