@@ -256,7 +256,7 @@ function renderChecklist() {
   setPageTitle('Checklist');
   const storageKey = 'checklistState';
   const items = [
-    '2 Stopwatches', '2 Pens', '2 Folders', 'Towel', 'Fan', 'Folding chair',
+    '2 Stopwatches', '2 Pens', '2 Folders', 'Towel', 'Flip-Flops', 'Fan', 'Folding chair',
     'Coin for locker', 'Parking pass', 'Snacks', 'Lunch', 'Water bottle', 'Electrolytes'
   ];
   const savedState = JSON.parse(localStorage.getItem(storageKey) || '{}');
