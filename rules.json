@@ -7,18 +7,24 @@
         {
           "id": "FR-5.1",
           "title": "Definition",
-          "body": "Freestyle means that in an event so designated the swimmer may swim any style, except that in individual medley or medley relay events, freestyle means any style other than backstroke, breaststroke or butterfly."
+          "body": "In a Freestyle race, Freestyle means an Athlete may swim any style. In an individual Medley race or a Medley relay race, Freestyle means an Athlete may swim any style other than Backstroke, Breaststroke or Butterfly."
         },
         {
           "id": "FR-5.2",
           "title": "Finish",
-          "body": "Some part of the swimmer must touch the wall upon completion of each length and at the finish."
+          "body": "At least one part of the Athlete's body must touch the wall upon completion of each length and at the finish."
         },
         {
           "id": "FR-5.3",
           "title": "Submersion Limit",
-          "body": "Some part of the swimmer must break the surface of the water throughout the race, except it shall be permissible for the swimmer to be completely submerged during the turn and for a distance of not more than 15 metres after the start and each turn. By that point, the head must have broken the surface."
+          "body": "At least one part of the Athlete's body must break the surface of the water throughout the race, except that the Athlete may be completely submerged during the turn and for a distance of not more than 15 metres after the start and after each turn. By the 15 metre-mark, the Athlete's head must have broken the surface of the water."
+        },
+        {
+          "id": "FR-5.4",
+          "title": "Submersion at Finish",
+          "body": "Once some part of the head of the Athlete has passed the 5 metre-mark, immediately prior to reaching for the finish wall, the Athlete may be completely submerged."
         }
+
       ]
     },
     {
@@ -43,7 +49,7 @@
         {
           "id": "BK-6.4",
           "title": "Turn Execution",
-          "body": "When executing the turn there must be a touch of the wall with some part of the swimmer’s body. During the turn the shoulders may be turned over the vertical to the breast after which an immediate continuous single arm pull or immediate continuous simultaneous double arm pull may be used to initiate the turn. The swimmer must have returned to the position on the back upon leaving the wall."
+          "body": "When executing the turn there must be a touch of the wall with some part of the swimmer's body. During the turn the shoulders may be turned over the vertical to the breast after which an immediate continuous single arm pull or immediate continuous simultaneous double arm pull may be used to initiate the turn. The swimmer must have returned to the position on the back upon leaving the wall."
         },
         {
           "id": "BK-6.5",
