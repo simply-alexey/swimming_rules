@@ -155,7 +155,7 @@ function renderHome() {
       <a class="tile" href="#other/the-start">The Start</a>
       <a class="tile" href="#other/medley">Medley Swimming</a>
       <a class="tile" href="#other/the-race">The Race</a>
-      <a class="tile" href="#other/swimwear">Swimwear & Wearables</a>
+      <a class="tile" href="#other/swimwear">Swimwear, Technology and Wearables</a>
       <a class="tile" href="#infractions">Infraction Sheet</a>
       <a class="tile" href="#useful">Useful</a>
     </div>
