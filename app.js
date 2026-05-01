@@ -367,7 +367,7 @@ function renderInfractions() {
   }
 
   view.innerHTML = html;
-  setFootnote('v. 13 Dec 2024');
+  setFootnote('v. 13 March 2026');
 }
 
 
