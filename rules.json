@@ -145,23 +145,78 @@
           "rules": [
             {
               "id": "ST-4.1",
-              "title": "Starting Procedure for Freestyle, Breaststroke, Butterfly and Individual Medley",
-              "body": "The start in Freestyle, Breaststroke, Butterfly and Individual Medley races shall be with a dive. On the long whistle (Part Two, Article 2.1.5) from the referee the swimmers shall step onto the starting platform and remain there. On the starter's command 'take your marks', they shall immediately take up a starting position with at least one foot at the front of the starting platforms. The position of the hands is not relevant. When all swimmers are stationary, the Starter shall give the starting signal."
+              "title": "Dive Starts",
+              "body": "The start in Freestyle, Breaststroke, Butterfly and Individual Medley races will be with a dive."
+            },
+            {
+              "id": "ST-4.1.1",
+              "title": "Referee Whistle Signals for Dive Starts",
+              "body": "Once all Athletes have removed their clothing, except for Swimwear, the Referee will signal the commencement of a race by a short series of whistles, which invites the Athletes to get ready at the starting end, followed by a long whistle, which indicates that the Athletes must take their positions on the starting platform and remain there."
+            },
+            {
+              "id": "ST-4.1.2",
+              "title": "Starter Control for Dive Starts",
+              "body": "When the Athletes and Technical Officials are prepared for the start, the Referee will gesture to the Starter using a outstretched arm, which indicates that the Athletes are under the Starter's control. The Referee's outstretched arm will stay in that position until the starting signal is given."
+            },
+            {
+              "id": "ST-4.1.3",
+              "title": "Starting Position for Dive Starts",
+              "body": "On the Starter's command \"take your marks\", the Athletes will immediately take up a starting position with at least one foot in contact with the front of the starting platforms. The position of the Athlete's hands is not relevant."
+            },
+            {
+              "id": "ST-4.1.4",
+              "title": "Starting Signal for Dive Starts",
+              "body": "When all Athletes are stationary, the Starter will give the starting signal."
             },
             {
               "id": "ST-4.2",
-              "title": "Starting Procedure for Backstroke and Medley Relay",
-              "body": "The start in the Backstroke and Medley Relay races shall be from the water. At the referee's first long whistle (Part Two, Article 2.1.5), the swimmers shall immediately enter the water. At the referee's second long whistle the swimmers shall return without undue delay to the starting position (Part Two, Article 6.1). When all swimmers have assumed their starting positions, the starter shall give the command 'take your marks'. When all swimmers are stationary, the starter shall give the starting signal."
+              "title": "In-Water Starts",
+              "body": "The start in Backstroke races and Medley relay races will be in the water."
+            },
+            {
+              "id": "ST-4.2.1",
+              "title": "Referee Whistle Signals for In-Water Starts",
+              "body": "Once all Athletes have removed their clothing, except for Swimwear, the Referee will signal the commencement of a race by a short series of whistles, which invites the Athletes to get ready at the starting end, followed by a long whistle, which indicates that the Athletes must immediately enter the water."
+            },
+            {
+              "id": "ST-4.2.2",
+              "title": "Return to Starting Position",
+              "body": "At the Referee's second long whistle, the Athletes will return without undue delay to the starting position."
+            },
+            {
+              "id": "ST-4.2.3",
+              "title": "Starter Control for In-Water Starts",
+              "body": "When the Athletes and Technical Officials are prepared for the start, the Referee will gesture to the Starter using a outstretched arm, which indicates that the Athletes are under the Starter's control. The Referee's outstretched arm will stay in that position until the starting signal is given."
+            },
+            {
+              "id": "ST-4.2.4",
+              "title": "Take Your Marks for In-Water Starts",
+              "body": "When all Athletes have assumed their starting positions in the water in accordance with Article 6.1 of this Part Two, the Starter will give the command \"take your marks\"."
+            },
+            {
+              "id": "ST-4.2.5",
+              "title": "Starting Signal for In-Water Starts",
+              "body": "When all Athletes are stationary, the Starter will give the starting signal."
             },
             {
               "id": "ST-4.3",
-              "title": "Language and Equipment",
-              "body": "In Olympic Games, World Aquatics Championships and other World Aquatics events the command 'Take your marks' shall be in English and the start shall be by multiple loudspeakers, mounted one at each starting platform."
+              "title": "Commands and Loudspeakers",
+              "body": "At the Olympic Games, the World Aquatics Championships, and other World Aquatics Events, the command \"take your marks\" will be in English, and commands and the starting signal will be communicated to Athletes via loudspeakers mounted at or by each starting platform."
             },
             {
               "id": "ST-4.4",
-              "title": "False Start Procedure",
-              "body": "Any swimmer initiating a start before the signal may be disqualified. If the starting signal sounds before the disqualification is declared, the race shall continue and the swimmer or swimmers shall be disqualified upon completion of the race. If the disqualification is declared before the starting signal, the signal shall not be given, but the remaining swimmers shall be called back and start again. The referee repeats the starting procedure beginning with the long whistle (the second one for Backstroke) as per Part Two, Article 2.1.5."
+              "title": "Starting Before the Signal",
+              "body": "Any Athlete who initiates a start before the signal may be disqualified."
+            },
+            {
+              "id": "ST-4.4.1",
+              "title": "Disqualification After the Starting Signal",
+              "body": "If the starting signal is given before the disqualification is declared, the race will continue and the Athlete will be disqualified at the completion of the race."
+            },
+            {
+              "id": "ST-4.4.2",
+              "title": "Disqualification Before the Starting Signal",
+              "body": "If the disqualification is declared before the starting signal is given, the starting signal will not be given, the remaining Athletes will be stood down using the command \"stand down please\", and the Referee will repeat the starting procedure from the long whistle in accordance with Article 4.1.1 or 4.2.2 of this Part Two (as applicable)."
             }
           ]
         },
@@ -172,22 +227,22 @@
             {
               "id": "MS-9.1",
               "title": "Order of Strokes in Individual Medley",
-              "body": "In individual medley events, the swimmer covers the four swimming strokes in the following order: Butterfly, Backstroke, Breaststroke and Freestyle. Each of the strokes must cover one quarter (1/4) of the distance."
+              "body": "In an individual Medley race: the Athlete must perform the four swimming strokes, each for one quarter (1/4) of the total race distance, in the following order: Butterfly, Backstroke, Breaststroke, and Freestyle."
             },
             {
               "id": "MS-9.2",
-              "title": "Freestyle Portion of the Medley",
-              "body": "In Freestyle the swimmer must be on the breast except when executing a turn. The swimmer must return to the breast before any kick or stroke. Leaving the wall on the back during the freestyle portion is permissible but no kicking action is permitted until the swimmer has returned past the vertical to the breast at which point kicking, including a butterfly kick(s), may commence."
+              "title": "Order of Strokes in Medley Relay",
+              "body": "In a Medley relay race: the Athletes must perform the four swimming strokes, each for one quarter (1/4) of the total race distance, in the following order: Backstroke, Breaststroke, Butterfly, and Freestyle."
             },
             {
               "id": "MS-9.3",
-              "title": "Order of Strokes in Medley Relay",
-              "body": "In Medley relay events, swimmers will cover the four swimming strokes in the following order: Backstroke, Breaststroke, Butterfly and Freestyle. Each of the strokes must cover one quarter (1/4) of the distance."
+              "title": "Freestyle Section",
+              "body": "For both individual Medley and Medley relay races: during the Freestyle section, the Athlete's body must be on the breast, except when executing a turn. The Athlete must return to the breast before any kick or stroke. Leaving the wall on the back during the Freestyle section is permissible; however, no kicking action is permitted until the Athlete has returned past the vertical to the breast, at which point kicking - including one or more Butterfly kicks - may commence."
             },
             {
               "id": "MS-9.4",
               "title": "Finishing Requirements",
-              "body": "Each section must be finished in accordance with the rule which applies to the stroke concerned."
+              "body": "Each stroke section must be finished in accordance with the applicable rules for that stroke."
             }
           ]
         },
@@ -197,90 +252,129 @@
           "rules": [
             {
               "id": "RA-10.1",
-              "title": "Separate Gender Events",
-              "body": "All individual races must be held as separate gender events."
+              "title": "Separate Sex Competitions",
+              "body": "All individual races must be held as separate sex competitions."
             },
             {
               "id": "RA-10.2",
-              "title": "Completion of the Course",
-              "body": "A swimmer swimming over the course alone shall cover the whole distance to qualify. A swimmer who does not complete the whole distance in accordance with the relevant World Aquatics rules shall be disqualified."
+              "title": "Requirements for All Races",
+              "body": "In all races:"
+            },
+            {
+              "id": "RA-10.2.1",
+              "title": "Complete the Course Distance",
+              "body": "An Athlete must complete the course distance (or, in a relay, their quarter of the total race distance)."
+            },
+            {
+              "id": "RA-10.2.2",
+              "title": "Allocated Lane",
+              "body": "An Athlete must start the race in his/her allocated lane, remain in that lane throughout the race, and finish the race in that lane."
+            },
+            {
+              "id": "RA-10.2.3",
+              "title": "Turns and Contact with Wall",
+              "body": "When performing a turn, an Athlete must make physical contact with the wall at the end of the pool or course, and\n- subject to Article 10.2.4 of this Part Two - the Athlete must not take a stride or step from the bottom of the pool."
+            },
+            {
+              "id": "RA-10.2.4",
+              "title": "Standing or Walking on Pool Bottom",
+              "body": "An Athlete must not stand and/or walk on the pool bottom (except during Freestyle events or the Freestyle portion of Medley events, during which Athletes are permitted to stand on the pool bottom)."
+            },
+            {
+              "id": "RA-10.2.5",
+              "title": "Lane Rope",
+              "body": "An Athlete must not pull on the lane rope."
+            },
+            {
+              "id": "RA-10.2.6",
+              "title": "Obstruction and Interference",
+              "body": "An Athlete must not obstruct or otherwise interfere with another Athlete."
+            },
+            {
+              "id": "RA-10.2.7",
+              "title": "Water Entry by Non-Entered Athlete",
+              "body": "An Athlete who is not entered in a race must not enter the water during that race or before all Athletes in that race have completed the course distance."
+            },
+            {
+              "id": "RA-10.2.8",
+              "title": "Leaving the Pool After Completion",
+              "body": "An Athlete who has completed the course distance must leave the pool as soon as possible without obstructing or otherwise interfering with any Athlete who has not yet completed the course distance."
+            },
+            {
+              "id": "RA-10.2.9",
+              "title": "Pacemaking",
+              "body": "An Athlete must not act (or attempt to act) as a pacemaker for another Athlete, and an Athlete must not use (or attempt to use) any pacemaking device or plan."
             },
             {
               "id": "RA-10.3",
-              "title": "Clothing Protocol",
-              "body": "On the pool deck, after respecting the presentation protocol outlined in Part Two, Article 1.5, the competitors must immediately remove all clothing except for swimwear."
+              "title": "Disqualification for Race Requirement Breaches",
+              "body": "If the Referee determines (in his/her sole discretion) that an Athlete has breached any of the requirements of Article 10.2 of this Part Two, the Referee will disqualify the Athlete from that event (save in the case of breach of Article 10.2.7 of this Part Two, where the Referee will disqualify the Athlete that entered the water from the next race that the Athlete is scheduled to compete in at the competition)."
+            },
+            {
+              "id": "RA-10.3.1",
+              "title": "Reporting Intentional Interference",
+              "body": "The Referee must report apparently intentional breaches of Article 10.2.6 of this Part Two to the Management Committee, which will report the matter to (as appropriate) (1) the Member Federation representing the country in which the World Aquatics Event is being held, and (2) the Member Federation that the Athlete is registered with for further investigation and possible disciplinary action. Further or alternative disciplinary action may be taken by the Aquatics Integrity Unit in relation to breaches arising at a World Aquatics Event or by the relevant regulatory authority in relation to breaches arising at other competitions."
             },
             {
               "id": "RA-10.4",
-              "title": "Lane Consistency",
-              "body": "The swimmer must remain and finish the race in the same lane in which they started."
+              "title": "Requirements for Relay Races",
+              "body": "For all relay races:"
+            },
+            {
+              "id": "RA-10.4.1",
+              "title": "Relay Team Composition",
+              "body": "Each relay team must be comprised of four (4) Athletes, and each relay team in a Mixed Relay must be comprised of two (2) men and two (2) women."
+            },
+            {
+              "id": "RA-10.4.2",
+              "title": "Relay Team Order",
+              "body": "Prior to the race and in accordance with the deadline specified by the Management Committee, the team leader must specify the order in which the relay team members will compete."
+            },
+            {
+              "id": "RA-10.4.2.1",
+              "title": "Relay Substitutions After Deadline",
+              "body": "After that deadline, substitutions of one relay team member for another relay team member may be made only in the case of an evidenced medical emergency and with the prior permission of the Referee, the World Aquatics Technical Delegate, or the Management Committee (as applicable)."
+            },
+            {
+              "id": "RA-10.4.2.2",
+              "title": "Relay Composition Between Heats and Finals",
+              "body": "The composition of a relay team may be changed between the heats and finals of an event, provided that all relay team members are eligible to compete in the relay event at the competition."
+            },
+            {
+              "id": "RA-10.4.3",
+              "title": "One Relay Leg per Athlete",
+              "body": "An Athlete may compete in a race only once as a relay team member."
+            },
+            {
+              "id": "RA-10.4.4",
+              "title": "Relay Exchanges",
+              "body": "Athletes must commence relay exchanges from the starting platform, and must not perform a running start from the pool deck."
+            },
+            {
+              "id": "RA-10.4.5",
+              "title": "Relay Takeover Contact",
+              "body": "Until an Athlete touches the wall to complete their quarter of the total race distance, the feet of the Athlete in the same relay team who is next in order to compete must remain in contact with the starting platform."
+            },
+            {
+              "id": "RA-10.4.6",
+              "title": "Relay Water Entry",
+              "body": "Unless they are specified as next in order to compete in the relay, an Athlete who is a relay team member must not enter (or re-enter) the water during that race or before all Athletes in the race have completed the course distance."
+            },
+            {
+              "id": "RA-10.4.7",
+              "title": "Relay Athlete Pool Exit",
+              "body": "An Athlete who has completed their distance must leave the pool as soon as possible without obstructing or otherwise interfering with any Athlete who has not yet completed their distance."
             },
             {
               "id": "RA-10.5",
-              "title": "Turns and Contact with Wall",
-              "body": "In all events, a swimmer when turning shall make physical contact with the end of the pool or course. The turn must be made from the wall, and it is not permitted to take a stride or step from the bottom of the pool."
+              "title": "Disqualification for Relay Requirement Breaches",
+              "body": "If the Referee determines (in his/her sole discretion) that an Athlete or other person has breached any of the requirements of Article 10.4 of this Part Two, the Referee will disqualify the relevant relay team (and, if it was an Athlete that breached the requirement, will disqualify that Athlete)."
             },
             {
               "id": "RA-10.6",
-              "title": "Standing on the Bottom",
-              "body": "Standing on the bottom during freestyle events or during the freestyle portion of medley events shall not disqualify a swimmer, but they shall not walk."
-            },
-            {
-              "id": "RA-10.7",
-              "title": "Lane Rope Rule",
-              "body": "Pulling on the lane rope is not allowed."
-            },
-            {
-              "id": "RA-10.8",
-              "title": "Obstruction and Interference",
-              "body": "Obstructing another swimmer by swimming across another lane or otherwise interfering shall disqualify the offender. Should the foul be intentional, the referee shall report the matter to the Member promoting the race, and to the Member of the swimmer so offending."
-            },
-            {
-              "id": "RA-10.9",
-              "title": "Entering the Water During a Race",
-              "body": "Any swimmer not entered in a race, who enters the water in which an event is being conducted before all swimmers therein have completed the race, shall be disqualified from their next scheduled race in the meet."
-            },
-            {
-              "id": "RA-10.10",
-              "title": "Relay Team Composition",
-              "body": "There shall be four swimmers on each relay team. Mixed relays may be swum. Mixed Relays must consist of two (2) Men and two (2) Women. Split times achieved in these events cannot be used for records and/or entry purposes."
-            },
-            {
-              "id": "RA-10.11",
-              "title": "Relay Start Position",
-              "body": "Relay exchanges must commence from the starting platform. Running starts from the pool deck are not permitted."
-            },
-            {
-              "id": "RA-10.12",
-              "title": "Early Takeoff in Relay",
-              "body": "In relay events, the team of a swimmer whose feet lose touch with the starting platform before the preceding team-mate touches the wall shall be disqualified."
-            },
-            {
-              "id": "RA-10.13",
-              "title": "Unauthorized Water Entry in Relay",
-              "body": "Any relay team shall be disqualified from a race if a team member, other than the swimmer designated to swim that length, enters the water when the race is being conducted, before all swimmers of all teams have finished the race."
-            },
-            {
-              "id": "RA-10.14",
-              "title": "Relay Team Composition and Substitutions",
-              "body": "The members of a relay team and their order of competing must be nominated before the race. Any relay team member may compete in a race only once. The composition of a relay team may be changed between the heats and finals of an event, provided that it is made up from the list of swimmers properly entered by a member for that event. Failure to swim in the order listed will result in disqualification. Substitutions may be made only in the case of a documented medical emergency."
-            },
-            {
-              "id": "RA-10.15",
-              "title": "Post-Race Exit",
-              "body": "Any swimmer having finished their race, or their distance in a relay event, must leave the pool as soon as possible without obstructing any other swimmer who has not yet finished their race. Otherwise, the swimmer committing the fault, or their relay team, shall be disqualified."
-            },
-            {
-              "id": "RA-10.16",
-              "title": "Re-Swim Rule",
-              "body": "Should a foul endanger the chance of success of a swimmer, the referee shall have the power to allow him to compete in the next heat or, should the foul occur in a final event or in the last heat, he/she may order it to be re-swum."
-            },
-            {
-              "id": "RA-10.17",
-              "title": "Use of Devices",
-              "body": "No pace-making shall be permitted, nor may any device be used or plan adopted which has that effect."
+              "title": "Re-Swim Following Adverse Impact",
+              "body": "If the Referee determines (in his/her sole discretion) that a breach of the requirements of Article 10.2 or Article 10.4 of this Part Two by an Athlete has adversely impacted the chances of success of another Athlete (or relay team), the Referee (in his sole discretion) may order that the impacted Athlete (or relay team) be permitted to compete again in the next heat or, if the breach occurred in the final heat or in a final, may order that the final heat or the final be re-swum."
             }
-                        
           ]
         },
         {
@@ -288,24 +382,24 @@
           "code": "swimwear",
           "rules": [
             {
-              "id": "SW-15.1",
-              "title": "Swimsuit Composition",
-              "body": "Competitors must wear only one swimsuit in one or two pieces. No additional items, like arm bands or leg bands shall be regarded as parts of a swimsuit. All swimsuits shall comply with the requirements set forth in these Competition Regulations."
+              "id": "SW-14.1",
+              "title": "Permitted Swimwear",
+              "body": "During competition, an Athlete must wear a swimsuit and may wear goggles and/or a cap, in each case that is permitted by Article 6 of Part One."
             },
             {
-              "id": "SW-15.2",
-              "title": "Swimsuit Design Specifications",
-              "body": "For swimming competitions, swimsuits for men shall not extend above the navel nor below the knee. For women, the swimsuit shall not cover the neck, nor extend past the shoulder, nor below knee. The swimsuits shall be made from textile materials."
+              "id": "SW-14.2",
+              "title": "Prohibited Aids",
+              "body": "Other than permitted Swimwear, an Athlete must not wear or use during competition any device or swimwear that may aid his/her speed, buoyancy, or endurance (such as, for example, webbed gloves, flippers, fins, or adhesive substances)."
             },
             {
-              "id": "SW-15.3",
-              "title": "Prohibited Devices and Aids",
-              "body": "No swimmer shall be permitted to use or wear any device or swimsuit that may aid their speed, buoyancy or endurance during a competition (such as webbed gloves, flippers, fins, power bands, or adhesive substances, etc.). The use of technology and automated data collection devices is permissible for the sole purpose of collecting data. Automated devices shall not be utilised to transmit data, sounds, or signals to the swimmer and may not be used to aid their speed. Goggles may be worn. As a consequence of injury, it is permissible to tape not more than one or two fingers or toes. Any other kind of tape on the body is not permitted unless approved by the Referee or other designated person."
+              "id": "SW-14.3",
+              "title": "Automated Data Collection Devices",
+              "body": "An Athlete is permitted to use an automated data collection device for the sole purpose of collecting data. Such device must not be capable of transmitting or used to transmit data, sounds, or signals to the Athlete and must not be capable of aiding or used to aid the Athlete's speed, buoyancy, or endurance."
             },
             {
-              "id": "SW-15.4",
-              "title": "World Record Suit Approval",
-              "body": "A World Record (including Junior World Record and Masters World Record) will only be recognised by World Aquatics if approved swimwear has been used. World Aquatics may request the athlete to submit their swimsuit worn during the World Record for conducting further analysis in its laboratory."
+              "id": "SW-14.4",
+              "title": "Tape for Finger or Toe Injuries",
+              "body": "An Athlete will be permitted to use tape on one (1) or two (2) fingers or toes (including to bind together two fingers or toes) if use of the tape is required to treat or protect an injury to a finger or toe."
             }
           ]
         }
