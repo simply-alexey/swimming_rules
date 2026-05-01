@@ -321,7 +321,7 @@ function renderOther(code, targetId) {
       <div>${r.body}</div>
     </article>
   `).join('');
-  setFootnote('eff. 1 Jan 2025');
+  setFootnote('eff. Feb 2026');
   if (targetId) scrollToRule(targetId);
 }
 
