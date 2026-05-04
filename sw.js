@@ -1,4 +1,4 @@
-const CACHE = 'swim-rules-v3.6';
+const CACHE = 'swim-rules-v3.7';
 const ASSETS = [
   '.',
   'index.html',
